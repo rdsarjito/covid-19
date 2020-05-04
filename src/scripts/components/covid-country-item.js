@@ -1,28 +1,38 @@
-import "./covid-country-app";
+import "./covid-country-search";
+import EventBus from "../utils/event-bus";
+
 class CovidCountryItem extends HTMLElement {
   constructor() {
     super();
     this.shadowDOM = this.attachShadow({mode: "open"});
-
-    this.onClickHandler = () => {
-      const selectCountry = document.querySelector('covid-country-app');
-      selectCountry.selectedCountry = this._country.iso3;
-    }
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
-  set country(country) {
-    this._country = country;
+  static get observedAttributes() {
+    return ['country', 'iso3'];
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'country') {
+      this._country = newValue; 
+    }
+    if (name === 'iso3') {
+      this._iso3 = newValue; 
+    }
     this.render();
   }
 
+  onClickHandler() {
+    EventBus.fire('select-country', {'payload': { iso3: this._iso3, name: this._country, } });
+  }
 
   render() {
     const button = document.createElement('button');
     button.onclick = this.onClickHandler;
-    button.setAttribute('value', this._country.iso3);
-    button.setAttribute('class', 'covid-country-item-app');
+    button.setAttribute('value', this._iso3);
+    button.setAttribute('class', 'covid-country-item');
     const text = document.createElement('p');
-    text.innerHTML = `${this._country.name}`;
+    text.innerHTML = `${this._country}`;
     button.appendChild(text);
     this.shadowDOM.innerHTML = 
       `<style>
@@ -36,7 +46,7 @@ class CovidCountryItem extends HTMLElement {
           margin-bottom: 5px;
           overflow: hidden;
         }
-        .covid-country-item-app {
+        .covid-country-item {
           background: rgba(0,0,0,0.1);
           padding: 0.5rem;
           border-radius: 0.5rem;
@@ -44,7 +54,7 @@ class CovidCountryItem extends HTMLElement {
           border: 0;
           text-align: left;
         }
-        .covid-country-item-app {
+        .covid-country-item {
 
         }
       </style>`;
@@ -55,4 +65,4 @@ class CovidCountryItem extends HTMLElement {
   }
 }
 
-customElements.define("covid-country-item-app", CovidCountryItem);
+customElements.define("covid-country-item", CovidCountryItem);

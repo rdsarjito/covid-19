@@ -1,4 +1,4 @@
-import './covid-country-app';
+import './covid-country-search';
 import logo from '../../assets/logo/covid-19-logo.jpeg';
 
 class NavBar extends HTMLElement {
@@ -10,7 +10,7 @@ class NavBar extends HTMLElement {
     this.innerHTML = 
       `<nav>
         <img src="${logo}" alt="">
-        <covid-country-app></covid-country-app>
+        <covid-country-search></covid-country-search>
       </nav>`
     ;
   }

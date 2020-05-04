@@ -121,13 +121,7 @@ nav ul li a:hover::after{
 }
 
 .container {
-  z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto;
-  border-radius: 24px;
-  background: #F6F5F0;
-  padding: 2%;
-  box-shadow: 0px 10px 6px -8px rgba(0,0,0,0.75);
+  
 }
 .board {
   column-count: 3;
@@ -177,3 +171,14 @@ main {
   margin-top: 100px;
 }
 
+
+.covid-box-summary {
+  margin: 0 auto;
+  margin-top: 100px;
+  z-index: 1;
+  max-width: 1280px;
+  border-radius: 0.5rem;
+  background: #F6F5F0;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.1);
+}
