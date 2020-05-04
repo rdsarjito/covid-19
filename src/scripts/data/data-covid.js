@@ -25,8 +25,8 @@ class CovidData {
   }
 
   // get all confirmed cases by covid endpoint
-  static getConfimedCases() {
-    return fetch(END_POINT.ENDPOINT_CONFIRMED)
+  static getConfimedCases(countryIso3) {
+    return fetch(`${END_POINT.ENDPOINT_CONFIRMED}/${countryIso3}`)
       .then(r => r.json())
       .then(json => {
         return Promise.resolve(json);

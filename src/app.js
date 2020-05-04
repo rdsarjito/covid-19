@@ -71,14 +71,14 @@ main();
 //     const dataCovid = await resultCovid.json();
 //     const dataCovidFiltered = dataCovid.find(el => el.countryRegion === e);
 //     console.log(dataCovidFiltered);
-//     let card = `<div class="container">
-//     <h2>Kasus Covid -19 di ${dataCovidFiltered.countryRegion}</h2>
-//     <div class="board">
-//       <div class="card confirmed"><i class="fa fa-tachometer"></i><h5>Confirmed</h5><span id="confirmed">${dataCovidFiltered.confirmed.toLocaleString()}</span></div>
-//       <div class="card r"><i class="fa fa-check-square-o"></i><h5>Recovered Cases</h5><span id="recovered">${dataCovidFiltered.recovered.toLocaleString()}</span></div>
-//       <div class="card d"><i class="fa fa-times"></i><h5>Total Deaths</h5><span id="death">${dataCovidFiltered.deaths.toLocaleString()}</span></div>
-//     </div>
-//   </div>`
+  //   let card = `<div class="container">
+  //   <h2>Kasus Covid -19 di ${dataCovidFiltered.countryRegion}</h2>
+  //   <div class="board">
+  //     <div class="card confirmed"><i class="fa fa-tachometer"></i><h5>Confirmed</h5><span id="confirmed">${dataCovidFiltered.confirmed.toLocaleString()}</span></div>
+  //     <div class="card r"><i class="fa fa-check-square-o"></i><h5>Recovered Cases</h5><span id="recovered">${dataCovidFiltered.recovered.toLocaleString()}</span></div>
+  //     <div class="card d"><i class="fa fa-times"></i><h5>Total Deaths</h5><span id="death">${dataCovidFiltered.deaths.toLocaleString()}</span></div>
+  //   </div>
+  // </div>`
 //   wrapper.innerHTML = card;
 
 //   } catch(error) {
