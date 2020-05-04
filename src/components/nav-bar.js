@@ -1,10 +1,11 @@
 class NavBar extends HTMLElement {
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `<nav>
+  render() {
+    this.innerHTML = 
+      `<nav>
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
           <i class="fa fa-bars"></i>
@@ -16,7 +17,8 @@ class NavBar extends HTMLElement {
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>`
-    }
+    ;
+  }
 }
 
 customElements.define("nav-bar", NavBar);
