@@ -7,6 +7,7 @@ import "./scripts/components/nav-bar-covid";
 import CovidData from "./scripts/data/data-covid";
 // import "./scripts/components/covid-world-app";
 import "./scripts/components/covid-country-app";
+import "./scripts/components/covid-box-summary";
 
 const main = async () => {
   const selectCountry = document.querySelector('covid-country-app');
@@ -79,7 +80,7 @@ main();
   //     <div class="card d"><i class="fa fa-times"></i><h5>Total Deaths</h5><span id="death">${dataCovidFiltered.deaths.toLocaleString()}</span></div>
   //   </div>
   // </div>`
-//   wrapper.innerHTML = card;
+  // wrapper.innerHTML = card;
 
 //   } catch(error) {
 //     alert(error);
