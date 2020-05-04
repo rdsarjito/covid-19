@@ -10,4 +10,4 @@ class CovidCountry extends HTMLElement {
   }
 }
 
-customElements.define("covid-country", CovidCountry);
+customElements.define("covid-country-app", CovidCountry);

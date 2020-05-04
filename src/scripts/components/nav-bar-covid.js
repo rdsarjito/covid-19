@@ -21,4 +21,4 @@ class NavBar extends HTMLElement {
   }
 }
 
-customElements.define("nav-bar", NavBar);
+customElements.define("nav-bar-covid", NavBar);

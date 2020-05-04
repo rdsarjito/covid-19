@@ -1,11 +1,11 @@
+import "regenerator-runtime";
 import "./styles/style.css";
 import "./styles/responsive.css";
 // import "font-awesome/css/font-awesome.min.css";
 
-import "./scripts/components/nav-bar";
-import "./scripts/components/covid-world";
-import "./scripts/components/covid-country";
-
+import "./scripts/components/nav-bar-covid";
+import "./scripts/components/covid-world-app";
+import "./scripts/components/covid-country-app";
 
 // DOM
 const selectElement = document.querySelector('.selectCountry');

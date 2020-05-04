@@ -15,4 +15,4 @@ class CovidWorld extends HTMLElement {
   }
 }
 
-customElements.define("covid-world", CovidWorld);
+customElements.define("covid-world-app", CovidWorld);
