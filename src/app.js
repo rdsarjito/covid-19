@@ -1,10 +1,10 @@
-import "./style/style.css";
-import "./style/responsive.css";
+import "./styles/style.css";
+import "./styles/responsive.css";
 // import "font-awesome/css/font-awesome.min.css";
 
-import "./components/nav-bar";
-import "./components/covid-world";
-import "./components/covid-country";
+import "./scripts/components/nav-bar";
+import "./scripts/components/covid-world";
+import "./scripts/components/covid-country";
 
 
 // DOM
