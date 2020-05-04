@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
@@ -18,8 +19,8 @@
     "webpack-merge": "^4.2.2"
   },
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server --config webpack.dev.js"
+    "build": "webpack --config webpack/webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack/webpack.dev.js"
   },
   "author": "",
   "license": "ISC",
