@@ -21,26 +21,6 @@ class CovidCountryItem extends HTMLElement {
 
   render() {
     return `
-      <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      :host {
-        display: block;
-        margin-bottom: 5px;
-        overflow: hidden;
-      }
-      .covid-country-item {
-        background: rgba(0,0,0,0.1);
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        width: 100%;
-        border: 0;
-        text-align: left;
-      }
-    </style>
     <button class="covid-country-item">
       ${this.model.name}
     </button>

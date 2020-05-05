@@ -9,7 +9,7 @@ class NavBar extends HTMLElement {
   render() {
     this.innerHTML = 
       `<nav>
-        <img src="${logo}" alt="">
+        <img src="${logo}" alt="covid19 logo">
         <covid-country-search></covid-country-search>
       </nav>`
     ;

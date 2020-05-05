@@ -1,6 +1,5 @@
 import './covid-country-list.js';
 import './covid-box-summary';
-import './covid-world-app';
 
 import EventBus from "../utils/event-bus";
 
@@ -13,7 +12,7 @@ class CovidCountryInputSearch extends HTMLElement {
   _handleChange(e) {
     EventBus.fire('search-country-change', {'payload': e.target.value });
   }
-  _handleFocus(e) {
+  _handleFocus() {
     EventBus.fire('search-country-toogle', {'payload': true });
   }
 
