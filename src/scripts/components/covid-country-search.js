@@ -14,24 +14,44 @@ class CovidCountry extends HTMLElement {
     this._toogleSearch = this._toogleSearch.bind(this);
   }
 
-  _handleChange(e) {
-    console.log(e.detail.payload);
+  _handleChange(event) {
+    const regexSearch = new RegExp(`${event.detail.payload}.+`, 'g');
+    const filteredCountry = this._countries.filter(c => regexSearch.test(c.name.toLowerCase()));
+    this._countryList.countries = filteredCountry;
   }
-  _toogleSearch(e) {
-    this._searching = e.detail.payload;
+
+  _toogleSearch(show) {
+    const dropdown = this.querySelector('#dropdown');
+    if (show) {
+      dropdown.classList.add('active');
+    } else {
+      dropdown.classList.remove('active');
+    }
   }
 
   set countries(countries) {
     this._countries = countries;
     this._renderSearch();
   }
-
+  
   connectedCallback() {
+    EventBus.register('search-country-toogle', (e) => this._toogleSearch(e.detail.payload));
+    EventBus.register('search-country-change', this._handleChange);
+    EventBus.register('select-country', () => this._toogleSearch(false));
+
     this._renderSearch();
+
+    document.addEventListener('click', (e) => {
+      if (!this.contains(e.target)) {
+        this._toogleSearch(false);
+      }
+    })
   }
 
   _renderSearch() {
     this.innerHTML = this.render();
+    this._countryList = document.querySelector('covid-country-list');
+    this._countryList.countries = this._countries;
   }
 
   render() {
@@ -54,10 +74,18 @@ class CovidCountry extends HTMLElement {
           padding: 0.5rem;
           font-size: 1rem;
         }
+        .dropdown {
+          display: none;
+        }
+        .dropdown.active {
+          display: block;
+        }
       </style>
       <div class="covid-country-search">
         <covid-country-input-search></covid-country-input-search>
-        <covid-country-list countries=${JSON.stringify(this._countries)}></covid-country-list>
+        <div class="dropdown" id="dropdown">
+          <covid-country-list></covid-country-list>
+        </div>
       </div>
     `;
   }

@@ -1,57 +1,35 @@
-import './covid-country-item.js';
-
-import EventBus from "../utils/event-bus";
+import CovidCountryItem from './covid-country-item.js';
 
 class CovidCountryList extends HTMLElement {
   constructor() {
     super();
-    this._countries = [];
-    this._show = false;
-
-    this._toogleShow = this._toogleShow.bind(this);
   }
 
   set countries(countries) {
-    this._countries = countries;
-    this.render();
+    this.generateCountryList(countries);
   }
 
-  static get observedAttributes() {
-    return ['countries'];
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'countries') {
-      console.log(newValue);
-      // this._countries = JSON.parse(newValue); 
-    }
-    this.render();
-  }
-
-  _toogleShow(e) {
-    // console.log(this._countries)
-    // console.log(e.detail.payload);
-    this._show = e.detail.payload;
-    // this.render();
+  generateCountryList(countries) {
+    this._listWrapper = this.querySelector('#covid-country-search-list');
+    this._listWrapper.innerHTML = '';
+    countries.forEach(c => {
+      const country = new CovidCountryItem();
+      country.model = c;
+      this._listWrapper.appendChild(country);
+    });
   }
 
   connectedCallback() {
-    // EventBus.register('search-country-change', this._handleChange);
-    EventBus.register('search-country-toogle', this._toogleShow);
+    this.innerHTML = this.render();
+    this._listWrapper = this.querySelector('#covid-country-search-list')
   }
 
   render() {
-    const list = this._countries.map(country => {
-      return `<covid-country-item country=${country.name} iso3=${country.iso3}></covid-country-item>`
-    }).join('');
-
-    console.log(this._countries);
-
-    this.innerHTML = `
+    return `
       <style>
         .covid-country-search-list {
           position: absolute;
-          top: 35px;
+          top: 55px;
           left: 0;
           background: white;
           border: 1px solid rgba(0,0,0,0.1);
@@ -64,8 +42,7 @@ class CovidCountryList extends HTMLElement {
           display: block;
         }
       </style>
-      <div class="covid-country-search-list">
-        ${list}
+      <div id="covid-country-search-list" class="covid-country-search-list">
       </div>
     `;
   }
