@@ -22,7 +22,7 @@ class CovidBoxSummary extends HTMLElement {
   render() {
     return `
       <div class="covid-box-board">
-        <h2>Kasus ${this._summary.regionName ? `di ${this._summary.regionName}` : 'Dunia'}</h2>
+        <h2>Kasus ${this._summary.regionName ? `di ${this._summary.regionName}` : 'World'}</h2>
         <div class="covid-box-summary">
           <div class="covid-box-summary-item primary">
             <h3>Terkonfirmasi<h3>
