@@ -1,20 +1,29 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
  
 module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: 'bundle.js'
+        filename: '[name].[contenthash].js',
     },
     module: {
         rules: [
             /* style and css loader */
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: [
                     {
                         loader: 'style-loader'
+                    },
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: path.resolve(__dirname, '../dist'),
+                            hmr: process.env.NODE_ENV === 'development',
+                        },
+               
                     },
                     {
                         loader: 'css-loader'
@@ -36,8 +45,14 @@ module.exports = {
             }
         ]
     },
-    /* plugin */
+    /* plugins */
     plugins: [
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: process.env.NODE_ENV === 'development' ? '[name].css' : 'main.[hash].css',
+            chunkFilename: process.env.NODE_ENV === 'development' ? '[id].css' : 'chunk.[hash].css',
+        }),
         /* HTML Webpack Plugin */
         new HtmlWebpackPlugin({
             template: './src/index.html',
