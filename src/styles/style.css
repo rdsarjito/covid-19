@@ -61,6 +61,9 @@ covid-country-search {
   width: 100%;
   margin-left: 1rem;
 }
+covid-country-input-search {
+  width: 100%;
+}
 
 .covid-country-item {
   background: rgba(0,0,0,0.1);
@@ -93,9 +96,12 @@ covid-country-search {
   width: 100%;
   display: block;
 }
+.covid-country-search-list p {
+  padding: 0 1rem;
+}
 
 .covid-country-search {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 0.5rem;
   position: relative;
@@ -105,7 +111,7 @@ covid-country-search {
 }
 
 .covid-country-search:hover {
-  border: 1px solid rgba(0,0,0,0.6);
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.3);
   transition: 0.5s;
 }
 
