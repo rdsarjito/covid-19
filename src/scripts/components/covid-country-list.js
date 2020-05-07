@@ -7,12 +7,14 @@ class CovidCountryList extends HTMLElement {
 
   generateCountryList(countries) {
     this._listWrapper = this.querySelector('#covid-country-search-list');
-    this._listWrapper.innerHTML = '';
-    countries.forEach(country => {
-      const countryItem = new CovidCountryItem();
-      countryItem.model = country;
-      this._listWrapper.appendChild(countryItem);
-    });
+    if (countries.length) {
+      this._listWrapper.innerHTML = '';
+      countries.forEach(country => {
+        const countryItem = new CovidCountryItem();
+        countryItem.model = country;
+        this._listWrapper.appendChild(countryItem);
+      });
+    }
   }
 
   connectedCallback() {
