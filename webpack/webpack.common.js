@@ -6,7 +6,7 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: 'main.[hash].js'
+        filename: '[name].[contenthash].js',
     },
     module: {
         rules: [
@@ -50,8 +50,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
-            filename: process.env.NODE_ENV === 'development' ? '[name].css' : '[name].[hash].css',
-            chunkFilename: process.env.NODE_ENV === 'development' ? '[id].css' : '[id].[hash].css',
+            filename: process.env.NODE_ENV === 'development' ? '[name].css' : 'main.[hash].css',
+            chunkFilename: process.env.NODE_ENV === 'development' ? '[id].css' : 'chunk.[hash].css',
         }),
         /* HTML Webpack Plugin */
         new HtmlWebpackPlugin({
