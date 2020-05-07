@@ -13,10 +13,9 @@ class CovidCountry extends HTMLElement {
   }
 
   _handleChange(event) {
-    const regexSearch = new RegExp(`${event.detail.payload}.+`, 'g');
+    const regexSearch = new RegExp(`${event.detail.payload}.*`);
     const filteredCountry = this._countries.filter(c => regexSearch.test(c.name.toLowerCase()));
     this._countryList.countries = filteredCountry;
-    console.log(filteredCountry);
   }
 
   _toogleSearch(show) {
