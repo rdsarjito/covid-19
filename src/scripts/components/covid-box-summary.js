@@ -22,19 +22,19 @@ class CovidBoxSummary extends HTMLElement {
   render() {
     return `
       <div class="covid-box-board">
-        <h2>Kasus ${this._summary.regionName ? `di ${this._summary.regionName}` : 'World'}</h2>
+        <h2>Kasus ${this._summary.regionName ? `di ${this._summary.regionName}` : 'Seluruh Dunia'}</h2>
         <div class="covid-box-summary">
           <div class="covid-box-summary-item primary">
             <h3>Terkonfirmasi<h3>
-            <h5>${this._summary.confirmed.value ? thousandFormat(this._summary.confirmed.value) : 'tunggu..'}<h5>
+            <h5>${this._summary.confirmed.value ? thousandFormat(this._summary.confirmed.value) : '0'}<h5>
           </div>
           <div class="covid-box-summary-item success">
             <h3>Sembuh<h3>
-            <h5>${this._summary.recovered.value ? thousandFormat(this._summary.recovered.value) : 'tunggu..'}<h5>
+            <h5>${this._summary.recovered.value ? thousandFormat(this._summary.recovered.value) : '0'}<h5>
           </div>
           <div class="covid-box-summary-item danger">
             <h3>Kematian<h3>
-            <h5>${this._summary.deaths.value ? thousandFormat(this._summary.deaths.value) : 'tunggu..'}<h5>
+            <h5>${this._summary.deaths.value ? thousandFormat(this._summary.deaths.value) : '0'}<h5>
           </div>
         </div>
       </div>
