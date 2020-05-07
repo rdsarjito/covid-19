@@ -12,7 +12,6 @@ class CovidBoxSummary extends HTMLElement {
   }
 
   set loading(loading) {
-    // this._loading = loading === 'true';
     this.innerHTML = this.render();
   }
 

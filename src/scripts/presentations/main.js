@@ -16,7 +16,6 @@ class CovidMain extends HTMLElement {
 
   async _requestWorld() {
     const summaryComponent = document.querySelector('covid-box-summary');
-    // summaryComponent.loading = 'true';
     const res = await CovidData.getSummary();
     summaryComponent.summary = res;
   }
