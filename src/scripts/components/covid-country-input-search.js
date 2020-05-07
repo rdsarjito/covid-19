@@ -28,7 +28,6 @@ class CovidCountryInputSearch extends HTMLElement {
       <input placeholder="Cari negara..." />
     `;
   }
- 
 }
 
 customElements.define("covid-country-input-search", CovidCountryInputSearch);

@@ -101,7 +101,14 @@ covid-country-search {
   position: relative;
   width: 100%;
   display: flex;
+  transition: 0.5s;
 }
+
+.covid-country-search:hover {
+  border: 1px solid rgba(0,0,0,0.6);
+  transition: 0.5s;
+}
+
 .covid-country-search input {
   border: none;
   margin: 0.5rem;
@@ -110,6 +117,7 @@ covid-country-search {
   width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 .dropdown {
   display: none;
